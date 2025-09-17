@@ -1,0 +1,19 @@
+{
+  "name": "alt-credit-scoring",
+  "version": "1.0.0",
+  "description": "Alternative Credit Scoring Platform for Underbanked Populations",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install"
+  },
+  "keywords": ["fintech", "credit-scoring", "machine-learning", "alternative-data"],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

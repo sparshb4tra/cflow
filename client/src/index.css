@@ -1,0 +1,345 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+/* Söhne font would be loaded from a paid service like fonts.com or similar */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Gumroad-style text selection */
+::selection {
+  background-color: #FF6EC7;
+  color: white;
+}
+
+::-moz-selection {
+  background-color: #FF6EC7;
+  color: white;
+}
+
+body {
+  font-family: 'SF Pro Text', 'SF Pro Display', -apple-system, system-ui, 'Helvetica Neue', Helvetica, Arial,
+    'Inter', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f6f7f3; /* subtle warm off-white */
+  color: #2B2B2B;
+  line-height: 1.6;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+/* Typography System - Gumroad Style */
+h1, .heading-xl {
+  font-size: 4rem; /* 64px */
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+h2, .heading-lg {
+  font-size: 3rem; /* 48px */
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+h3, .heading-md {
+  font-size: 2rem; /* 32px */
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+h4, .heading-sm {
+  font-size: 1.5rem; /* 24px */
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+p, .body-text {
+  font-size: 1.125rem; /* 18px */
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.body-text-sm {
+  font-size: 1rem; /* 16px */
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.ui-text {
+  font-size: 0.875rem; /* 14px */
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.ui-text-lg {
+  font-size: 1rem; /* 16px */
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Numeric-only font to make numbers stand out */
+.font-numeric {
+  font-family: 'Courier New', Courier, monospace;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  h1, .heading-xl {
+    font-size: 2.5rem; /* 40px */
+  }
+  
+  h2, .heading-lg {
+    font-size: 2rem; /* 32px */
+  }
+  
+  p, .body-text {
+    font-size: 1rem; /* 16px */
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Smooth transitions */
+* {
+  transition: all 0.2s ease-in-out;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Minimal primary button (no stacked hover) */
+.btn-primary {
+  @apply bg-black text-white font-semibold px-7 py-3.5 rounded-xl transition-all duration-150;
+}
+.btn-primary:hover { @apply -translate-y-0.5; box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+.btn-primary:focus { outline: none; box-shadow: 0 0 0 3px rgba(17,17,17,0.2); }
+
+.btn-secondary {
+  @apply bg-white hover:bg-gray-50 text-gray-700 font-semibold px-6 py-3 rounded-lg border border-gray-200 transition-all duration-200 transform hover:-translate-y-1;
+  box-shadow: 0 2px 0 #e5e7eb;
+}
+
+.btn-secondary:hover {
+  box-shadow: 0 4px 0 #e5e7eb, 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Minimal accent button (no stacked hover) */
+.btn-gumroad { @apply bg-bright-pink text-white font-semibold px-7 py-3.5 rounded-xl transition-all duration-150; }
+.btn-gumroad:hover { @apply -translate-y-0.5; box-shadow: 0 8px 20px rgba(246,77,255,0.25); }
+.btn-gumroad:focus { outline: none; box-shadow: 0 0 0 3px rgba(246,77,255,0.35); }
+.btn-gumroad::before,
+.btn-gumroad::after { content: none; }
+.btn-gumroad:hover { background-color: #fa83ff; }
+
+/* Gumroad-style Card */
+.card {
+  @apply bg-white rounded-xl shadow-sm border border-gray-100 p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1;
+}
+
+.card-large {
+  @apply bg-white rounded-2xl shadow-lg border border-gray-200 p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+}
+
+/* Gradient backgrounds */
+.gradient-bg {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Loading animations */
+.pulse-ring {
+  @apply absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75 animate-ping;
+}
+
+/* Form styles */
+.form-input {
+  @apply w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 bg-white;
+}
+
+.form-input:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Carousel hover pause */
+.hover\\:pause-animation:hover {
+  animation-play-state: paused;
+}
+
+/* GitHub badge - footer */
+.github-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #111111;
+  color: #ffffff;
+  border-radius: 9999px;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: transform 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
+}
+.github-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+  background: #0f0f0f;
+}
+.github-badge svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* Reusable interactive accent (matches github-badge hover feel) */
+.interactive-accent {
+  transition: transform 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
+}
+.interactive-accent:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+}
+
+/* 3D Coin styles */
+.coin-3d {
+  position: relative;
+  perspective: 900px;
+}
+.coin-3d .coin {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 30% 30%, #ffa3ee 0%, #ff79dc 45%, #ff60d4 70%, #ff5cd2 100%);
+  border: 3px solid #0f0f0f;
+  transform-style: preserve-3d;
+  transform: rotateX(55deg) rotateZ(20deg);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.18), 0 6px 12px rgba(0,0,0,0.12);
+}
+.coin-3d .coin::before { /* edge */
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  background: conic-gradient(from 0deg, #0f0f0f 0 6%, #ff9fe9 6% 94%, #0f0f0f 94% 100%);
+  filter: drop-shadow(0 2px 0 rgba(0,0,0,0.4));
+  transform: translateZ(-8px) rotateZ(0.001deg);
+}
+.coin-3d .coin::after { /* subtle inner ring */
+  content: "";
+  position: absolute;
+  inset: 10%;
+  border-radius: inherit;
+  border: 2px solid rgba(0,0,0,0.85);
+}
+.coin-3d .coin-letter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateZ(-10deg);
+  font-weight: 900;
+  color: #0a0a0a;
+}
+
+/* illustrated gloss + shadow for depth */
+.coin-3d .gloss {
+  position: absolute;
+  top: 8%;
+  left: 10%;
+  width: 60%;
+  height: 40%;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), rgba(255,255,255,0.35) 35%, rgba(255,255,255,0) 65%);
+  transform: rotateZ(-20deg) translateZ(1px);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+.coin-3d .shadow {
+  position: absolute;
+  inset: 0;
+  transform: rotateX(65deg) translateY(40%) scale(1.1);
+  filter: blur(10px);
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.22), rgba(0,0,0,0) 60%);
+  z-index: -2;
+}
+
+@keyframes coin-wobble {
+  0% { transform: rotateX(55deg) rotateZ(18deg); }
+  50% { transform: rotateX(60deg) rotateZ(24deg); }
+  100% { transform: rotateX(55deg) rotateZ(18deg); }
+}
+.wobble-slow .coin {
+  animation: coin-wobble 6s ease-in-out infinite;
+}
+
+/* Soft animated gradient blobs (subtle background accents) */
+.accent-blob {
+  position: absolute;
+  filter: blur(42px);
+  opacity: 0.35;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  border-radius: 9999px;
+  animation: accent-float 16s ease-in-out infinite;
+}
+.accent-blob--pink {
+  background: radial-gradient(circle at 30% 30%, #fbb0ff 0%, #f64dff 45%, rgba(246,77,255,0.6) 70%, rgba(246,77,255,0.0) 75%);
+}
+.accent-blob--aqua {
+  background: radial-gradient(circle at 30% 30%, #8ff5df 0%, #06d6a0 45%, rgba(6,214,160,0.6) 70%, rgba(6,214,160,0.0) 75%);
+}
+.accent-blob--blue {
+  background: radial-gradient(circle at 30% 30%, #baf0ff 0%, #4cc9f0 45%, rgba(76,201,240,0.6) 70%, rgba(76,201,240,0.0) 75%);
+}
+@keyframes accent-float {
+  0%   { transform: translate3d(0,0,0) scale(1); }
+  25%  { transform: translate3d(12px,-10px,0) scale(1.05); }
+  50%  { transform: translate3d(-6px,8px,0) scale(0.98); }
+  75%  { transform: translate3d(10px,6px,0) scale(1.03); }
+  100% { transform: translate3d(0,0,0) scale(1); }
+}
+
+/* Subtle polka-dot grid background (open-source style) */
+.pattern-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(17,17,17,0.35) 0.9px, rgba(0,0,0,0) 1px);
+  background-size: 18px 18px;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+}
