@@ -1,6 +1,6 @@
-# 🚀 CreditFlow - Alternative Credit Scoring Platform WORK IN PROGRESS!!!
+# 🚀 cflow - Alternative Credit Scoring Platform WORK IN PROGRESS!!!
 
-**Revolutionizing financial inclusion with AI-powered alternative credit scoring**
+** AI-powered alternative credit scoring**
 
 [![Demo](https://img.shields.io/badge/Demo-Live-brightgreen)](https://your-demo-url.com)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
