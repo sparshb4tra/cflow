@@ -1,4 +1,4 @@
-# 🚀 CreditFlow - Alternative Credit Scoring Platform
+# 🚀 CreditFlow - Alternative Credit Scoring Platform WORK IN PROGRESS!!!
 
 **Revolutionizing financial inclusion with AI-powered alternative credit scoring**
 
